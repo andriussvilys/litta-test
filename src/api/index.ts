@@ -1,7 +1,7 @@
 import { apiRoute } from "../definitions/commons";
-import { User } from "../definitions/user";
+import { UserFormFields } from "../definitions/userFormFields";
 
-export const createUser = async (user: User) => {
+export const createUser = async (user: UserFormFields) => {
   try{
     const res = await fetch(`${apiRoute}/add`, {
       method: "POST",
@@ -18,7 +18,7 @@ export const createUser = async (user: User) => {
   }
 };
 
-export const updateUser = async (user: User) => {
+export const updateUser = async (user: UserFormFields) => {
   try{
     const res = await fetch(`${apiRoute}/${user.id}`, {
       method: "PUT",

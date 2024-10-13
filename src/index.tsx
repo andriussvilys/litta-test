@@ -8,6 +8,10 @@ import UserFormCreate from "./components/userForm/UserFormCreate";
 import { ErrorBoundary } from "./components/errorBoundary/ErrorBoundary";
 import { UserFormEdit } from "./components/userForm/UserFormEdit";
 import { getUser } from "./api";
+import { PrimeReactProvider } from 'primereact/api';
+import "./style/index.css"
+import "primereact/resources/themes/md-dark-indigo/theme.css";
+import "/node_modules/primeflex/primeflex.css"
 
 const router = createBrowserRouter([
   {
@@ -33,6 +37,8 @@ const rootElement = document.getElementById("root");
 const root = createRoot(rootElement!);
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <PrimeReactProvider>
+      <RouterProvider router={router} />
+    </PrimeReactProvider>
   </React.StrictMode>
 );

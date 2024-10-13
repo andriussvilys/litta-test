@@ -3,14 +3,15 @@ import UserForm from "./UserForm";
 import { User } from "../../definitions/user";
 import { useLoaderData } from "react-router-dom";
 import { updateUser } from "../../api";
+import { UserFormFields } from "../../definitions/userFormFields";
 
 export const UserFormEdit = () => {
-  const onSubmit = async (user: User) => {
+  const onSubmit = async (user: UserFormFields) => {
     try{
       const res = await updateUser(user);
     }
     catch(e){
-      console.log((e as Error).message)
+      throw e
     }
   };
   const user: User = useLoaderData() as User;

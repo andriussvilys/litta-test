@@ -1,16 +1,17 @@
 import React from "react";
 import UserForm from "./UserForm";
-import { User } from "../../definitions/user";
 import { createUser } from "../../api";
+import { UserFormFields } from "../../definitions/userFormFields";
 
 export default function UserFormCreate() {
-  const onSubmit = async (user: User) => {
-    try{
-        const res = await createUser(user);
-    }
-    catch(e){
-        console.log((e as Error).message)
+  const onSubmit = async (user: UserFormFields) => {
+    try {
+      const res = await createUser(user);
+    } catch (e) {
+      throw e
     }
   };
-  return <UserForm onSubmit={onSubmit} />;
+  return (
+      <UserForm onSubmit={onSubmit} />
+  );
 }
