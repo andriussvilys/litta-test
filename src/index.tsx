@@ -2,29 +2,22 @@ import * as React from "react";
 import {
   createBrowserRouter,
   RouterProvider,
-  useLoaderData,
 } from "react-router-dom";
-import UserForm from "./components/userForm/UserForm";
 import { createRoot } from "react-dom/client";
-import { User } from "./definitions/user";
-import { getUser } from "./routes/loaders/user";
-
-const UserFormEdit = () => {
-  console.log("UserFormEdit");
-  const user: User = useLoaderData() as User;
-  console.log(user);
-  return <UserForm user={user} onSubmit={(user: User) => console.log(user)} />;
-};
+import UserFormCreate from "./components/userForm/UserFormCreate";
+import { ErrorBoundary } from "./components/errorBoundary/ErrorBoundary";
+import { UserFormEdit } from "./components/userForm/UserFormEdit";
+import { getUser } from "./api";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <UserForm onSubmit={(user: User) => console.log(user)} />,
+    element: <UserFormCreate/>,
+    errorElement: <ErrorBoundary/>
   },
   {
     path: "/:id",
     loader: ({ params }) => {
-      console.log("loader");
       if (params?.id) {
         const id = parseInt(params.id);
         return getUser(id);
@@ -32,6 +25,7 @@ const router = createBrowserRouter([
       return null;
     },
     element: <UserFormEdit />,
+    errorElement: <ErrorBoundary/>
   },
 ]);
 
@@ -39,7 +33,6 @@ const rootElement = document.getElementById("root");
 const root = createRoot(rootElement!);
 root.render(
   <React.StrictMode>
-    
     <RouterProvider router={router} />
   </React.StrictMode>
 );

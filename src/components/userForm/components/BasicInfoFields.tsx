@@ -12,6 +12,7 @@ const {register, formState: { errors }} = useFormContext()
         <input {...register(BasicInfoField.MAIDENNAME)} />
         <input {...register(BasicInfoField.AGE)} />
         <input {...register(BasicInfoField.GENDER)} />
+        <label htmlFor={BasicInfoField.EMAIL}>Email</label>
         <input {...register(BasicInfoField.EMAIL)} />
         <input {...register(BasicInfoField.PHONE)} />
         <input {...register(BasicInfoField.USERNAME)} />
