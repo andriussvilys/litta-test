@@ -1,9 +1,0 @@
-import React from 'react';
-
-function App() {
-  return (
-    <div><span>hello world</span></div>
-  );
-}
-
-export default App;
