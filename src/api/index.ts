@@ -8,6 +8,7 @@ export const createUser = async (user: UserFormFields) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(user),
     });
+    console.log(res)
     if(!res.ok){
       throw new Error(res.statusText);
     }
@@ -25,6 +26,7 @@ export const updateUser = async (user: UserFormFields) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(user),
     });
+    console.log(res)
     if(!res.ok){
       throw new Error(res.statusText);
     }
@@ -38,6 +40,7 @@ export const updateUser = async (user: UserFormFields) => {
 export const getUser = async (id:number) => {
     try{
         const res = await fetch(`${apiRoute}/${id}`)
+        console.log(res)
         if(!res.ok){
             throw new Error(res.statusText)
         }
@@ -51,6 +54,7 @@ export const getUser = async (id:number) => {
 export const queryUsers = async (query: string) => {
     try{
         const res = await fetch(`${apiRoute}/search?q=${query}`)
+        console.log(res)
         if(!res.ok){
             throw new Error(res.statusText)
         }

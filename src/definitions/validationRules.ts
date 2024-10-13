@@ -1,5 +1,5 @@
 import { FormRules } from "./commons";
-import { AddressFieldLabels, AddressFieldName, BasicInfoFieldLabels, BasicInfoFieldName } from "./userFormFields";
+import { BasicInfoFieldLabels, BasicInfoFieldName } from "./userFormFields";
 
 const fieldIsRequired = (fieldLabel:string) => `${fieldLabel} is required.`
 
@@ -15,11 +15,5 @@ export const validationRules:Record<string, FormRules> = {
     },
     [BasicInfoFieldName.BIRTHDATE]: {
         required: fieldIsRequired(BasicInfoFieldLabels[BasicInfoFieldName.BIRTHDATE])
-    },
-    [AddressFieldName.CITY]: {
-        required: fieldIsRequired(AddressFieldLabels[AddressFieldName.CITY])
-    },
-    [AddressFieldName.STATE]: {
-        required: fieldIsRequired(AddressFieldLabels[AddressFieldName.STATE])
     }
 }
