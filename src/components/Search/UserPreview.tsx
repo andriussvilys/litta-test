@@ -2,6 +2,7 @@ import React from 'react'
 import { User } from '../../definitions/user'
 import { Button } from 'primereact/button'
 import { useNavigate } from 'react-router-dom'
+import { copy } from '../../definitions/copyText'
 
 export default function UserPreview({ user }: { user: User }) {
     const navigate = useNavigate()
@@ -15,7 +16,7 @@ export default function UserPreview({ user }: { user: User }) {
         <div className='ml-5'>
             <Button onClick={() => {
                 navigate(`/${user.id}`)
-            }}>EDIT</Button>
+            }}>{copy.buttons.edit}</Button>
         </div>
     </div>
   )

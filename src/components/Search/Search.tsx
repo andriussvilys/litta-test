@@ -6,6 +6,7 @@ import { Message } from "primereact/message";
 import { User } from "../../definitions/user";
 import UserPreview from "./UserPreview";
 import { Divider } from "primereact/divider";
+import { copy } from "../../definitions/copyText";
 
 export default function Search() {
   const [searchText, setSearchText] = React.useState("");
@@ -15,7 +16,6 @@ export default function Search() {
   const onSearch = async (query: string) => {
     try {
       const res = await queryUsers(searchText);
-      console.log(res);
       if(res.total === 0){
         setError("No users found")
         setUsers([])
@@ -32,7 +32,7 @@ export default function Search() {
     <div className="h-full w-full flex flex-column gap-4 justify-content-center align-items-center p-20">
       <div className="flex">
         <InputText
-          placeholder="Enter a name"
+          placeholder={copy.placeholders.search}
           onChange={(e) => setSearchText(e.target.value)}
         />
         <Button
@@ -40,7 +40,7 @@ export default function Search() {
             onSearch(searchText);
           }}
         >
-          Search
+          {copy.buttons.search}
         </Button>
       </div>
       <div>
