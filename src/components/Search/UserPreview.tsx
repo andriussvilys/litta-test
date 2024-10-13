@@ -9,9 +9,9 @@ export default function UserPreview({ user }: { user: User }) {
   return (
     <div className='flex justify-content-between align-items-center'>
         <div className='flex gap-3'>
-            <div>{user.firstName}</div>
-            <div>{user.lastName}</div>
-            <div>{user.username}</div>
+            <p style={{fontFamily:"arial"}}>{user.firstName}</p>
+            <p style={{fontFamily:"arial"}}>{user.lastName}</p>
+            <p style={{fontFamily:"arial"}}>{user.username}</p>
         </div>
         <div className='ml-5'>
             <Button onClick={() => {
