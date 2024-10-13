@@ -47,3 +47,16 @@ export const getUser = async (id:number) => {
         throw e
     }
 }
+
+export const queryUsers = async (query: string) => {
+    try{
+        const res = await fetch(`${apiRoute}/search?q=${query}`)
+        if(!res.ok){
+            throw new Error(res.statusText)
+        }
+        return res.json()
+    }
+    catch(e){
+        throw e
+    }
+}
