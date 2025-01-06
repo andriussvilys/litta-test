@@ -22,3 +22,5 @@ to run the code:
 1) Clone git repo
 2) cd into the cloned directory and run "npm install" in your terminal to install dependencies
 3) run command "npm start" to run the application locally (localhost:3000 on your browser)
+
+submission rejected
